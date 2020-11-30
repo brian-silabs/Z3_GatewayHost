@@ -1,4 +1,4 @@
-# Z3_GatewayHost_R22
+# Z3 GatewayHost
 
 ## Description
 Zigbee 3.0 Gateway Host implementation. Connects to an EZSP NCP target
@@ -17,6 +17,17 @@ Also, 2 Libraries are necessary :
 Simplest way is by using Cygwin
 WSL can be used too if you find the dependencies packages and have a working tty to COM link
 
+Fix an issue in the SDK that causes:
+```console
+FATAL: Could not set pipe reader to non-blocking (22): Invalid argument
+Z3_GatewayHost: ../../../../../SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406: setNonBlockingFD: Assertion `false' failed.
+Aborted (core dumped)
+```
+
+Edit gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406 to:
+```c
+int status = fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+```
 # On Other platforms (Linux & Darwin) 
 Simply run *make -j4 all*
 
