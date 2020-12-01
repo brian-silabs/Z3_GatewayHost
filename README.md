@@ -30,6 +30,17 @@ Also, 2 Libraries are necessary :
 Simplest way is by using Cygwin
 WSL can be used too if you find the dependencies packages and have a working tty to COM link
 
+Fix an issue in the SDK that causes:
+```console
+FATAL: Could not set pipe reader to non-blocking (22): Invalid argument
+Z3_GatewayHost: ../../../../../SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406: setNonBlockingFD: Assertion `false' failed.
+Aborted (core dumped)
+```
+
+Edit gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406 to:
+```c
+int status = fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+```
 # On Other platforms (Linux & Darwin) 
 Simply run *make -j4 all*
 
@@ -41,5 +52,4 @@ Run using *./Z3_GatewayHost -n 0 -p COM14*
 Official documentation can be found at our [Developer Documentation](https://docs.silabs.com/zigbee/latest/) page.
 
 ## Disclaimer ##
-
-The Gecko SDK suite supports development with Silicon Labs IoT SoC and module devices. Unless otherwise specified in the specific directory, all examples are considered to be EXPERIMENTAL QUALITY which implies that the code provided in the repos has not been formally tested and is provided as-is.  It is not suitable for production environments.  In addition, this code will not be maintained and there may be no bug maintenance planned for these resources. Silicon Labs may update projects from time to time.
+Unless otherwise specified in the specific directory, all examples are considered to be EXPERIMENTAL QUALITY which implies that the code provided in the repos has not been formally tested and is provided as-is.  It is not suitable for production environments.  In addition, this code will not be maintained and there may be no bug maintenance planned for these resources.
