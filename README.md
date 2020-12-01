@@ -20,28 +20,33 @@ It has to be used with [that NCP implementation](https://github.com/brian-silabs
 
 ## Build Instructions 
 You will need to add 2 files to Silicon Labs' SDK to build the project
-The 2 rijndael*.c files are open source files to be downloaded (those are not Silabs copyright, hence not included in SDK purposefully) and copied to the respective folder …./ developer/sdks/gecko_sdk_suite/v2.6/platform/base/hal/micro/generic/aes.
+The 2 rijndael*.c files are open source files to be downloaded (those are not Silabs copyright, hence not included in SDK purposefully) and copied to the folder developer/sdks/gecko_sdk_suite/vX.X/platform/base/hal/micro/generic/aes.
+
+You can find these files [here](https://github.com/gagern/gnulib/tree/master/lib)
 
 Also, 2 Libraries are necessary :
 * libncurses
 * libreadline
 
-# On Windows 
+#### On Windows 
 Simplest way is by using Cygwin
 WSL can be used too if you find the dependencies packages and have a working tty to COM link
 
-Fix an issue in the SDK that causes:
+Fix an issue in the SDK that causes:  
+
 ```console
 FATAL: Could not set pipe reader to non-blocking (22): Invalid argument
 Z3_GatewayHost: ../../../../../SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406: setNonBlockingFD: Assertion `false' failed.
 Aborted (core dumped)
 ```
 
-Edit gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406 to:
+Edit gecko_sdk_suite/v2.7/protocol/zigbee/app/util/serial/linux-serial.c:406 to:  
+
 ```c
 int status = fcntl(fd, F_SETFL, flags | O_NONBLOCK);
 ```
-# On Other platforms (Linux & Darwin) 
+
+#### On Other platforms (Linux & Darwin) 
 Simply run *make -j4 all*
 
 ## Run Instructions
