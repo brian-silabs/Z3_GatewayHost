@@ -1,9 +1,22 @@
-# Z3_GatewayHost_R22
+# Z3 GatewayHost
 
-## Description
+This repository holds documentation and implementation on how to create a Linux based Zigbee 3.0 Gateway 
+
+In order to proceed, you will need to download EmberZNet SDK through Simplicity Studio
+The SDK's access can only be requested using the serial number coming from this development kit :
+[SLWSTK6000B](https://www.silabs.com/development-tools/wireless/zigbee/efr32mg-zigbee-thread-starter-kit)
+
+At the time of writing, this is done using Simplicity Studio v4 and GSDK 2.7.8
+
+{% include list.liquid all=true %}
+
+## Description ##
 Zigbee 3.0 Gateway Host implementation. Connects to an EZSP NCP target
 This project implements most of HA profiles a Gateway must on Endpoint 1
 It also acts as a Green Power Combo, hence can handle Green Power Devices on its network
+
+It has to be used with [that NCP implementation](https://github.com/brian-silabs/ncp-uart-no-fc-115200)
+
 
 ## Build Instructions 
 You will need to add 2 files to Silicon Labs' SDK to build the project
@@ -23,5 +36,10 @@ Simply run *make -j4 all*
 ## Run Instructions
 Run using *./Z3_GatewayHost -n 0 -p COM14*
 
+## Documentation ##
+
+Official documentation can be found at our [Developer Documentation](https://docs.silabs.com/zigbee/latest/) page.
+
 ## Disclaimer ##
-Unless otherwise specified in the specific directory, all examples are considered to be EXPERIMENTAL QUALITY which implies that the code provided in the repos has not been formally tested and is provided as-is.  It is not suitable for production environments.  In addition, this code will not be maintained and there may be no bug maintenance planned for these resources.
+
+The Gecko SDK suite supports development with Silicon Labs IoT SoC and module devices. Unless otherwise specified in the specific directory, all examples are considered to be EXPERIMENTAL QUALITY which implies that the code provided in the repos has not been formally tested and is provided as-is.  It is not suitable for production environments.  In addition, this code will not be maintained and there may be no bug maintenance planned for these resources. Silicon Labs may update projects from time to time.
