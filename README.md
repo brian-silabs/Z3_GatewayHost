@@ -1,6 +1,6 @@
-# Z3 GatewayHost
+# Z3 Gateway with Green Power Combo
 
-This repository holds documentation and implementation on how to create a Linux based Zigbee 3.0 Gateway 
+This repository holds documentation and implementation on how to create a Linux based Zigbee 3.0 Gateway that supports Green Power Combo functionality
 
 In order to proceed, you will need to download EmberZNet SDK through Simplicity Studio
 The SDK's access can only be requested using the serial number coming from this development kit :

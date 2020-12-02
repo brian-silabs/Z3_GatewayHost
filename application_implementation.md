@@ -36,10 +36,11 @@ Through the *"Plugin"* tab, add the following plugins (use the search bar to fin
 
 #### Callbacks
 
-
-<img src="./images/AI_1_2_Callbacks.png" alt="" width="500" class="center">
+Nothing to do here
 
 #### Custom Software Events
+
+Nothing here either
 
 All of the previous applies only when you click the "Generate" button on top of the ISC file
 
@@ -47,7 +48,8 @@ All of the previous applies only when you click the "Generate" button on top of 
 ## C Implementation
 Now that our project has its Plugins added, we will need to implement callback functions as well as events
 By default, all callback implementations go to *project_name*_callbacks.c file
-We will work there in this example
+
+However we will let its default implementation in this example
 
 
 -   Build and Run the generated binary located in ./build/exe
