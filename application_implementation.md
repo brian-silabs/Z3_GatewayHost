@@ -56,5 +56,5 @@ However we will let its default implementation in this example
 Do not forget to add the Rijndael sources:
 The 2 rijndael*.c files are open source files to be downloaded (those are not Silabs copyright, hence not included in SDK purposefully) and copied to the folder developer/sdks/gecko_sdk_suite/vX.X/platform/base/hal/micro/generic/aes.
 
-You can find these files [here](https://github.com/gagern/gnulib/tree/master/lib)
+You can find these files [here](https://github.com/relic-toolkit/relic/tree/main/src/bc)
 
